@@ -1,0 +1,9 @@
+$accentColor: #6960f7;
+$accentHoverColor: darken($accentColor, 2%);
+$accentFocusColor: darken($accentColor, 5%);
+
+$successColor: #00bfa6;
+$errorColor: #f50057;
+
+$tabletMaxWidth: 1023px;
+$phoneMaxWidth: 767px;

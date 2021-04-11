@@ -1,0 +1,56 @@
+@import "../../styleguide/colors";
+
+.sidebar-layout {
+  display: flex;
+  min-height: 100vh;
+
+  @media screen and (max-width: $phoneMaxWidth) {
+    min-height: auto;
+  }
+
+  &__illustration,
+  &__content {
+    flex-basis: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    @media screen and (max-width: $phoneMaxWidth) {
+      padding-top: 50px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__illustration {
+    background: rgb(247, 247, 255);
+
+    @media screen and (max-width: $tabletMaxWidth) {
+      display: none;
+    }
+  }
+
+  &__content {
+    box-sizing: border-box;
+
+    padding-left: 40px;
+    padding-right: 40px;
+
+    @media screen and (max-width: $tabletMaxWidth) {
+      flex-basis: 100%;
+    }
+
+    @media screen and (max-width: $phoneMaxWidth) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__image {
+    width: 37vw;
+    height: 25.54vw;
+  }
+}

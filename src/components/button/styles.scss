@@ -1,0 +1,150 @@
+@import "../../styleguide/colors";
+
+.button {
+  color: white;
+  background: $accentColor;
+  border-radius: 8px;
+
+  display: block;
+  cursor: pointer;
+  border: none;
+  appearance: none;
+  outline: none;
+  box-sizing: border-box;
+
+  height: 40px;
+
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+
+  padding: 0 50px;
+
+  overflow: hidden;
+
+  transition: background-color 200ms ease, border-color 200ms ease,
+    box-shadow 200ms ease;
+
+  &:hover:not([disabled]) {
+    background-color: $accentHoverColor;
+    box-shadow: 0 0 0 4px rgba($accentColor, 0.1);
+  }
+
+  &:focus:not(&_state_success):not(&_state_error) {
+    background-color: $accentFocusColor;
+    box-shadow: 0 0 0 4px rgba($accentColor, 0.1);
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+
+  &__layer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    transition: transform 200ms ease, opacity 200ms ease;
+    will-change: transform, opacity;
+
+    &_caption {
+      opacity: 1;
+    }
+
+    &_spinner {
+      opacity: 0;
+    }
+  }
+
+  &_state_loading,
+  &_state_success,
+  &_state_error {
+    .button__layer {
+      transform: translate3d(0, -100%, 0);
+
+      &_caption {
+        opacity: 0;
+      }
+
+      &_spinner {
+        opacity: 1;
+      }
+    }
+  }
+
+  &_state_success {
+    background: $successColor;
+  }
+
+  &_state_error {
+    background: $errorColor;
+  }
+}
+
+@keyframes spinner-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+
+  border: 2px solid white;
+  border-right-color: transparent;
+  border-radius: 50%;
+
+  animation: 0.7s linear spinner-animation infinite;
+
+  position: relative;
+
+  transition: background-color 200ms ease;
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  &__tick {
+    width: 14px;
+    height: 14px;
+    color: $successColor;
+
+    opacity: 0;
+  }
+
+  &__cross {
+    width: 10px;
+    color: $errorColor;
+
+    opacity: 0;
+  }
+
+  &_success,
+  &_error {
+    border-color: white;
+    background: white;
+    animation: none;
+  }
+
+  &_success {
+    .spinner__tick {
+      opacity: 1;
+    }
+  }
+
+  &_error {
+    .spinner__cross {
+      opacity: 1;
+    }
+  }
+}

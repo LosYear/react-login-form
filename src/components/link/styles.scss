@@ -1,0 +1,15 @@
+@import "../../styleguide/colors";
+
+.link {
+  color: $accentColor;
+  text-decoration: none;
+  transition: color 200ms ease;
+
+  &:hover {
+    color: $accentHoverColor;
+  }
+
+  &:focus {
+    color: $accentFocusColor;
+  }
+}

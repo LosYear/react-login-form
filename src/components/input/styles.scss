@@ -1,0 +1,56 @@
+@import "../../styleguide/colors";
+
+.input {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    font-size: 15px;
+    font-weight: 600;
+
+    margin-bottom: 7px;
+  }
+
+  &__control {
+    height: 40px;
+    padding: 10px 16px;
+    box-sizing: border-box;
+
+    appearance: none;
+
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid transparent;
+
+    background: rgb(233, 240, 254);
+
+    font-size: 16px;
+    line-height: 24px;
+
+    transition: background-color 200ms ease, border-color 200ms ease,
+      box-shadow 200ms ease;
+
+    &:hover {
+      background: white;
+      border-color: rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 0 4px rgba($accentColor, 0.1);
+    }
+
+    &:focus {
+      background: white;
+
+      border-color: rgba($accentColor, 0.4);
+      box-shadow: 0 0 0 4px rgba($accentColor, 0.1);
+    }
+
+    &:active {
+      background-color: #fff;
+      border-color: #e7e7e9;
+      box-shadow: none;
+    }
+
+    &[aria-invalid="true"] {
+      border-color: $errorColor;
+    }
+  }
+}

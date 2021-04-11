@@ -1,0 +1,12 @@
+@import "../../styleguide/colors";
+
+.form-layout {
+  max-width: 420px;
+  width: 100%;
+
+  &__header {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 42px;
+  }
+}
